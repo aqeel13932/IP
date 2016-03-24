@@ -1,0 +1,74 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{color}
+\usepackage{geometry}
+\usepackage{float}
+\usepackage{amsmath}
+
+\usepackage{pdflscape}
+\usepackage{hyperref}
+\setlength{\belowcaptionskip}{-10pt}
+\setlength{\abovecaptionskip}{-30pt}
+\floatstyle{boxed} 
+\restylefloat{figure}
+\usepackage{graphicx}
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+	backgroundcolor=\color{backcolour},   
+	commentstyle=\color{codegreen},
+	keywordstyle=\color{blue},
+	numberstyle=\tiny\color{codegray},
+	stringstyle=\color{codepurple},
+	basicstyle=\footnotesize,
+	breakatwhitespace=false,         
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=left,                    
+	numbersep=5pt,                  
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2
+}
+
+\lstset{style=mystyle}
+\title{Image Processing Project Proposal\\
+Digital face makeup generation}
+
+\author{\textbf{Authors:}Aqeel Labash, Vadym Ponomarov\\ 
+	\textbf{Supervisor} Gholamreza Anbarjafari}
+\date{23 March 2016}
+
+\geometry{
+	a4paper,
+	total={170mm,257mm},
+	left=10mm,
+	top=5mm,
+}
+\begin{document}
+	\maketitle
+\section*{Abstract}
+In this project our aim is to add makeup on faces digitally by processing the face and recognize face parts as accurate as possible and add the required modification on colors that correspond to face part.
+\section*{Expected Steps}
+\begin{enumerate}
+	\item Read about pattern recognition.
+	\item Read some papers about this topic specifically : 
+	\begin{enumerate}
+		\item \href{http://users.cecs.anu.edu.au/~adhall/DhallSharmaBhattKhanISVC2009.pdf}{Adaptive Digital Makeup}
+		\item \href{https://www.comp.nus.edu.sg/~tsim/documents/face_makeup_cvpr09_lowres.pdf}{Digital Face Makeup by Example}
+		\item \href{http://web.stanford.edu/class/ee368/Project_Autumn_1516/Reports/Wut.pdf}{Digital Makeup Face Generation}
+	\end{enumerate} 
+	\item Build a model to separate face parts.
+	\item Build a model to change the color of each part by order.
+\end{enumerate}
+\section*{General Info}
+\textbf{Programming Language:}Matlab or python (only one of them not both)
+\end{document}
