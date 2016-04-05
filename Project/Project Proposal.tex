@@ -56,19 +56,32 @@ Digital face makeup generation}
 \begin{document}
 	\maketitle
 \section*{Abstract}
-In this project our aim is to add makeup on faces digitally by processing the face and recognize face parts as accurate as possible and add the required modification on colors that correspond to face part.
-\section*{Expected Steps}
+In this project our aim is to implement an automated algorithm on face makeup building. It can be done by processing the face and recognizing face parts as accurate as possible and adding the required modifications on colors/hue that correspond to face parts.
+\section*{Researching required information/techniques}
 \begin{enumerate}
-	\item Read about pattern recognition.
-	\item Read some papers about this topic specifically : 
+	\item Research basic Pattern Recognition techniques.
+	\item Study some papers about the topic, specifically:
 	\begin{enumerate}
 		\item \href{http://users.cecs.anu.edu.au/~adhall/DhallSharmaBhattKhanISVC2009.pdf}{Adaptive Digital Makeup}
 		\item \href{https://www.comp.nus.edu.sg/~tsim/documents/face_makeup_cvpr09_lowres.pdf}{Digital Face Makeup by Example}
 		\item \href{http://web.stanford.edu/class/ee368/Project_Autumn_1516/Reports/Wut.pdf}{Digital Makeup Face Generation}
 	\end{enumerate} 
-	\item Build a model to separate face parts.
-	\item Build a model to change the color of each part by order.
 \end{enumerate}
+\section*{An approximate digital makeup algorithm}
+\begin{enumerate}
+	\item Image resize for better fitting.
+	\item Perform skin segmentation, face detection (probably some ideal high pass filter resulting in a binary image). Possibly, extract several face layers, like structure/color/details.
+	\item Detect the face parts (eyes, lips, etc) within the detected face.
+	\item Maybe gender determination (optional).
+	\item	Skin tone preprocessing.
+	\item	Getting some database of makeups/faces would be nice.
+	\item	Apply digital makeup:
+	\begin{enumerate}
+			\item	apply some smoothing filter to remove unwanted details.
+			\item	perform color balancing / image enhancement.
+			\item apply makeup on face regions (lips, eyes, cheeks etc.) based on reference database or user preference. Possibly, use a reference wanted-makeup image of a different person. Use some blending methods.
+	\end{enumerate}
+\end{enumerate}    
 \section*{General Info}
 \textbf{Programming Language:}Matlab or python (only one of them not both)
 \end{document}
