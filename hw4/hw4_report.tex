@@ -6,14 +6,19 @@
 \usepackage{color}
 \usepackage{geometry}
 \usepackage{float}
+\floatstyle{plain}
+\restylefloat{figure}
 \usepackage{amsmath}
-
+\usepackage[svgnames]{xcolor}
+\definecolor{ocre}{RGB}{243,102,25}
+\usepackage{caption}
+\usepackage[font={color=white},figurename=Fig.,labelfont={it}]{caption}
+%\captionsetup{labelformat=empty,color=red}
 \usepackage{pdflscape}
 \usepackage{hyperref}
 \setlength{\belowcaptionskip}{-10pt}
 \setlength{\abovecaptionskip}{-30pt}
-\floatstyle{boxed} 
-\restylefloat{figure}
+
 \usepackage{graphicx}
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -53,6 +58,7 @@
 }
 \begin{document}
 	\maketitle
+	
 The code used for this task :
 	\begin{lstlisting}[language=Python]
 import cv2
@@ -61,38 +67,63 @@ from math import pow
 
 
 def showimg(img):
-cv2.namedWindow("test", cv2.WINDOW_NORMAL)
-img = np.array(img,dtype=float)/float(255)
-cv2.imshow('test',img)
-cv2.resizeWindow('test',600,600)
-cv2.waitKey(0)
+	cv2.namedWindow("test", cv2.WINDOW_NORMAL)
+	img = np.array(img,dtype=float)/float(255)
+	cv2.imshow('test',img)
+	cv2.resizeWindow('test',600,600)
+	cv2.waitKey(0)
 
 def readimg(name):
-return cv2.imread(name,0)
+	return cv2.imread(name,0)
+	
 #Read The image
 mypic = readimg('mypicture.jpg')
 resized = cv2.resize(mypic,(512,512),interpolation=cv2.INTER_LANCZOS4)
 cv2.imwrite('mypicture_resized.jpg',resized )
 for i in range(4,10):
-limit =  int(pow(2,i))
-resized[0:limit,0:limit] = cv2.GaussianBlur(resized[0:limit,0:limit],(5,5),20)
-#print limit
-cv2.imwrite('blurred_piece_by_piece.jpg',resized)
+	limit =  int(pow(2,i))
+	imagetoresize = np.copy(resized)
+	imagetoresize[0:limit,0:limit] = cv2.GaussianBlur(resized[0:limit,0:limit],(5,5),30)
+	cv2.imwrite('blurred_piece_by_piece'+str(limit)+'.jpg',imagetoresize)
 	\end{lstlisting}
+	
+	\listoffigures
+	
 The original picture :
 \begin{figure}[H]
 	\begin{center}
 \includegraphics[scale=1]{mypicture.jpg}
+\label{Original picture (429X592)}
 \caption{Original picture (429X592)}
 	\end{center}
 \end{figure}
 \begin{figure}[H]
-\includegraphics[scale=1]{mypicture_resized.jpg}
-\caption{Image after resizing (512X512) using lanczos 4}
+\includegraphics[scale=0.9]{mypicture_resized.jpg}
+\caption{Image after resizing (512X512) using lanczos 4 Scaled 0.9 to fit Page}
 \end{figure}
 \begin{figure}[H]
-\includegraphics[scale=1]{blurred_piece_by_piece.jpg}
-\caption{Image after blurring (512X512) patch size (16)}
+\includegraphics[scale=1]{blurred_piece_by_piece16.jpg}
+\caption {Only top left 16X16 blurred}
+\end{figure}
+\begin{figure}[H]
+	\includegraphics[scale=1]{blurred_piece_by_piece32.jpg}
+	\caption {Only top left 32X32 blurred}
+\end{figure}
+\begin{figure}[H]
+	\includegraphics[scale=1]{blurred_piece_by_piece64.jpg}
+	\caption {Only top left 64X64 blurred}
+\end{figure}
+\begin{figure}[H]
+	\includegraphics[scale=1]{blurred_piece_by_piece128.jpg}
+	\caption {Only top left 128X128 blurred}
+\end{figure}
+\begin{figure}[H]
+	\includegraphics[scale=1]{blurred_piece_by_piece256.jpg}
+	\caption {Only top left 256X256 blurred}
+\end{figure}
+\begin{figure}[H]
+	\includegraphics[scale=1]{blurred_piece_by_piece512.jpg}
+	\caption {Only top left 512X512 blurred}
 \end{figure}
 \textbf{Note: }The home work files,images,python code etc.. exist at \href{https://github.com/aqeel13932/IP/tree/master/hw4}{github}
 \end{document}

@@ -18,6 +18,7 @@ resized = cv2.resize(mypic,(512,512),interpolation=cv2.INTER_LANCZOS4)
 cv2.imwrite('mypicture_resized.jpg',resized )
 for i in range(4,10):
     limit =  int(pow(2,i))
-    resized[0:limit,0:limit] = cv2.GaussianBlur(resized[0:limit,0:limit],(5,5),20)
+    imagetoresize = np.copy(resized)
+    imagetoresize[0:limit,0:limit] = cv2.GaussianBlur(resized[0:limit,0:limit],(5,5),30)
+    cv2.imwrite('blurred_piece_by_piece'+str(limit)+'.jpg',imagetoresize)
     #print limit
-cv2.imwrite('blurred_piece_by_piece.jpg',resized)
