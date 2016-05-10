@@ -29,7 +29,6 @@ def compressWay2(obe,quality):
     table = np.array(nm)
     obe = cv2.LUT(obe, table)
     cv2.imwrite('obe_MYWAY_{}.jpg'.format(quality),obe)
-    print nm
 
 compressWay1(obe,10)
 compressWay2(obe,10)
