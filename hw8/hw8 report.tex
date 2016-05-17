@@ -125,6 +125,33 @@ value&Count&Pr&Code\_Length\\ \hline
 11&1&0.04&5\\ \hline
 \end{tabular} \\
 
-From the previous table we can see that Average length is 3.4800000000000004~ 3.48\\
-\textbf{Note:} For more details please check my solution file (HTML in python with figures + tables at )
+From the previous table we can see that the average length is 3.4800000000000004 \(\approx\) 3.48\\
+\textbf{Note:} For more details please check my solution file (HTML in python with figures + tables at \href{https://github.com/aqeel13932/IP/blob/master/hw8/HW8.ipynb}{HW8.ipython git hub} )
+\section*{D)}
+The value of laplacian image for that specific pixel is  62 and the new value is -62.\\
+Filter mask for digital laplacian : \\
+L = 
+\begin{tabular}{|c|c|c|}
+\hline
+1&1&1 \\ \hline
+1&-8&1 \\ \hline
+1& 1&1 \\ \hline
+\end{tabular} \\
+The equalized image at the same point in circle : \\
+IM = 
+\begin{tabular}{|c|c|c|}
+\hline
+6&13&2 \\ \hline
+7&0&0 \\ \hline
+10&9&15 \\ \hline
+\end{tabular} \\
+\[Sum(L*IM) = 62\]
+depending on the rule 
+\[g(x,y)  = f(x,y)-\nabla^2 f(x,y) \text{ since the center coefficient of the laplacian mask is negative } \]
+\[= -62\]
+\textbf{Note:}All .py , .tex , .pdf , .png , etc.. exist on \href{https://github.com/aqeel13932/IP/tree/master/hw8}{github}
+\begin{center}
+
+\textbf{E.O.F}
+\end{center}
 \end{document}
